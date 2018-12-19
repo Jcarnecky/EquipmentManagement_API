@@ -343,7 +343,7 @@
   "definitions" : {
     "Equipment" : {
       "type" : "object",
-      "description" : "A representation of the elements of the equipment hierarchy model shown in Part 1 shall be known as equipment. Equipment may be a listing of sites, areas, production units, production lines, work cells, process cells, units, storage zones or storage units. Equipment may be tested by the execution of an equipment capability test specification. Equipment may be made up of other equipment, as presented in the equipment hierarchy model.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- version\n- effectiveTo\n\nThe following are required in this version:\n- materialClassId\n- materialDefinitionId\n- storageLocationId\nThe following are not required in this version:\n- hierarchyScopeId",
+      "description" : "A representation of the elements of the equipment hierarchy model shown in Part 1 shall be known as equipment. Equipment may be a listing of sites, areas, production units, production lines, work cells, process cells, units, storage zones or storage units. Equipment may be tested by the execution of an equipment capability test specification. Equipment may be made up of other equipment, as presented in the equipment hierarchy model.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- version\n- effectiveTo\n\nThe following are required in this version:\n- materialClassId\n- materialDefinitionId\n- storageLocationId\n\nThe following are not required in this version:\n- hierarchyScopeId\n\nThe following fields are updated in this version:\n- effectiveFrom: formatted as date-time",
       "required" : [ "id", "equipmentLevel", "effectiveFrom" ],
       "properties" : {
         "id" : {
@@ -373,8 +373,9 @@
         },
         "effectiveFrom" : {
           "type" : "string",
+          "format" : "date-time",
           "description" : "The timestamp that this Equipment item version is applicable from.",
-          "example" : "201808151000"
+          "example" : "2016-04-16T16:06:05Z'"
         },
         "spatialDefinition" : {
           "type" : "array",
