@@ -427,7 +427,7 @@
     },
     "EquipmentCapability" : {
       "type" : "object",
-      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes.",
+      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes. **V0.1.0 Information**\nThe following properties are not supported in this version:\n- confidenceFactor\n\nThe following are changed in this version:\n- dates are explicit date-time types\n\nThe following are required in this version:\n- materialLotId",
       "required" : [ "capabilityType", "quantity", "quantityUnitOfMeasure" ],
       "properties" : {
         "equipmentClassId" : {
@@ -455,11 +455,6 @@
           "description" : "Defines the reason for the capability type.",
           "example" : "Due to schedule compliance"
         },
-        "confidenceFactor" : {
-          "type" : "number",
-          "description" : "A measure of the confidence of the capacity value.",
-          "example" : 75
-        },
         "hieararchyScopeId" : {
           "type" : "string",
           "description" : "Identifies where the exchanged information fits within the role based equipment hierarchy.   If omitted, then the capability is associated to the parent operations capability hierarchy scope.   Zero or more as required to identify the specific scope of the operations capability definition.",
@@ -474,13 +469,13 @@
           "type" : "string",
           "format" : "date-time",
           "description" : "The starting time associated with the equipment capability. If omitted, then the capability is associated to the parent operations capability start time.",
-          "example" : "201808231000"
+          "example" : "2016-04-16T16:06:05Z'"
         },
         "endTime" : {
           "type" : "string",
           "format" : "date-time",
           "description" : "The ending time associated with the equipment capability. If omitted, then the capability is associated to the parent operations capability end time.",
-          "example" : "201208241100"
+          "example" : "2016-04-16T16:06:05Z'"
         },
         "quantity" : {
           "type" : "number",
