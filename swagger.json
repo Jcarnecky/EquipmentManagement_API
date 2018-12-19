@@ -472,11 +472,13 @@
         },
         "startTime" : {
           "type" : "string",
+          "format" : "date-time",
           "description" : "The starting time associated with the equipment capability. If omitted, then the capability is associated to the parent operations capability start time.",
           "example" : "201808231000"
         },
         "endTime" : {
           "type" : "string",
+          "format" : "date-time",
           "description" : "The ending time associated with the equipment capability. If omitted, then the capability is associated to the parent operations capability end time.",
           "example" : "201208241100"
         },
