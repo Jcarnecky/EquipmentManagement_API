@@ -427,9 +427,14 @@
     },
     "EquipmentCapability" : {
       "type" : "object",
-      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes. **V0.1.0 Information**\nThe following properties are not supported in this version:\n- confidenceFactor\n\nThe following are changed in this version:\n- dates are explicit date-time types\n\nThe following are required in this version:\n- materialLotId",
-      "required" : [ "capabilityType", "quantity", "quantityUnitOfMeasure" ],
+      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes. **V0.1.0 Information**\n\nThe following fields are included in this version, which are not part of the standard specification:\n- id\n\nThe following properties are not supported in this version:\n- confidenceFactor\n\nThe following are changed in this version:\n- dates are explicit date-time types\n\nThe following are required in this version:\n- id",
+      "required" : [ "id", "capabilityType", "quantity", "quantityUnitOfMeasure" ],
       "properties" : {
+        "id" : {
+          "type" : "string",
+          "description" : "Unique id of the capability",
+          "example" : "644e1dd7-2a7f-18fb-b8ed-ed78c3f92c2b"
+        },
         "equipmentClassId" : {
           "type" : "string",
           "description" : "Identifies the associated equipment class of the capability.",
