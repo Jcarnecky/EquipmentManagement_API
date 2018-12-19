@@ -343,7 +343,7 @@
   "definitions" : {
     "Equipment" : {
       "type" : "object",
-      "description" : "A representation of the elements of the equipment hierarchy model shown in Part 1 shall be known as equipment. Equipment may be a listing of sites, areas, production units, production lines, work cells, process cells, units, storage zones or storage units. Equipment may be tested by the execution of an equipment capability test specification. Equipment may be made up of other equipment, as presented in the equipment hierarchy model.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- version\n- effectiveTo\n\nThe following are required in this version:\n- materialClassId\n- materialDefinitionId\n- storageLocationId\n\nThe following are not required in this version:\n- hierarchyScopeId\n\nThe following fields are updated in this version:\n- effectiveFrom: formatted as date-time",
+      "description" : "A representation of the elements of the equipment hierarchy model shown in Part 1 shall be known as equipment. Equipment may be a listing of sites, areas, production units, production lines, work cells, process cells, units, storage zones or storage units. Equipment may be tested by the execution of an equipment capability test specification. Equipment may be made up of other equipment, as presented in the equipment hierarchy model.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- version\n- effectiveTo\n\nThe following are not required in this version:\n- hierarchyScopeId\n\nThe following fields are updated in this version:\n- effectiveFrom: formatted as date-time",
       "required" : [ "id", "equipmentLevel", "effectiveFrom" ],
       "properties" : {
         "id" : {
@@ -394,7 +394,7 @@
     },
     "EquipmentProperty" : {
       "type" : "object",
-      "description" : "Properties of equipment shall be listed as equipment properties. An equipment shall have zero or more equipment properties. These specify the current property values of the equipment for the associated equipment class property. Equipment properties may include a unit of measure. An equipment property may be tested by the execution of an equipment capability test specification with results exchanged in an equipment capability test result. Equipment properties may contain nested equipment properties.",
+      "description" : "Properties of equipment shall be listed as equipment properties. An equipment shall have zero or more equipment properties. These specify the current property values of the equipment for the associated equipment class property. Equipment properties may include a unit of measure. An equipment property may be tested by the execution of an equipment capability test specification with results exchanged in an equipment capability test result. Equipment properties may contain nested equipment properties.\n\n**V0.1.0 Information**\nThe following fields are included in this version, which are not part of the standard specification:\n- context\n- valueType\n- properties",
       "required" : [ "id", "description", "value", "valueUnitOfMeasure" ],
       "properties" : {
         "id" : {
