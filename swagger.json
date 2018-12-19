@@ -51,57 +51,6 @@
             "description" : "Not found"
           }
         }
-      },
-      "delete" : {
-        "tags" : [ "admins" ],
-        "summary" : "deletes equipment",
-        "operationId" : "deleteEquipment",
-        "description" : "Delete existing items of equipment from the system\n",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "id",
-          "description" : "Equipment ID",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Deleted"
-          },
-          "404" : {
-            "description" : "Not found"
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "admins" ],
-        "summary" : "updates equipment",
-        "operationId" : "updateEquipment",
-        "description" : "Update existing items of equipment in the system\n",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "id",
-          "description" : "Equipment ID",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "equipmentItem",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/Equipment"
-          }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Updated"
-          },
-          "400" : {
-            "description" : "Bad input parameter"
-          }
-        }
       }
     },
     "/equipment" : {
@@ -188,8 +137,9 @@
                     },
                     "effectiveFrom" : {
                       "type" : "string",
-                      "description" : "The timestamp that this state of the Material Lot is effective from.",
-                      "example" : "201808151000"
+                      "format" : "date-time",
+                      "description" : "The timestamp that this state of the Equipment is effective from.",
+                      "example" : "2016-04-16T16:06:05Z'"
                     }
                   }
                 }
@@ -227,60 +177,6 @@
             "schema" : {
               "$ref" : "#/definitions/EquipmentCapability"
             }
-          },
-          "404" : {
-            "description" : "Not found"
-          }
-        }
-      },
-      "delete" : {
-        "tags" : [ "admins" ],
-        "summary" : "deletes capability with a specific ID",
-        "operationId" : "deleteEquipmentCapability",
-        "description" : "Delete equipment capability wiht a specific ID\n",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "id",
-          "description" : "Equipment Capability ID",
-          "required" : true,
-          "type" : "string"
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Deleted"
-          },
-          "404" : {
-            "description" : "Not found"
-          }
-        }
-      },
-      "put" : {
-        "tags" : [ "admins" ],
-        "summary" : "updates capability with a specific ID",
-        "operationId" : "putEquipmentCapability",
-        "description" : "Updates equipment capability with a specific ID\n",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "path",
-          "name" : "id",
-          "description" : "Equipment Capability ID",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "equipmentCapability",
-          "description" : "The equipment capability to update.",
-          "schema" : {
-            "$ref" : "#/definitions/EquipmentCapability"
-          }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Updated"
-          },
-          "400" : {
-            "description" : "Bad input parameter"
           },
           "404" : {
             "description" : "Not found"
@@ -341,29 +237,6 @@
                 "$ref" : "#/definitions/EquipmentCapability"
               }
             }
-          },
-          "400" : {
-            "description" : "Bad input parameter"
-          }
-        }
-      },
-      "post" : {
-        "tags" : [ "admins" ],
-        "summary" : "creates equipment capabilities",
-        "operationId" : "createEquipmentCapability",
-        "description" : "Create new items of equipment capability in the system\n",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "capability",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/EquipmentCapability"
-          }
-        } ],
-        "responses" : {
-          "201" : {
-            "description" : "Created"
           },
           "400" : {
             "description" : "Bad input parameter"
