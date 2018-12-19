@@ -153,16 +153,48 @@
       },
       "post" : {
         "tags" : [ "admins" ],
-        "summary" : "creates equipment",
-        "operationId" : "createEquipment",
-        "description" : "Create new items of equipment in the system\n",
+        "summary" : "Performs updates to sets of equipment",
+        "operationId" : "createEquipmentInfo",
+        "description" : "Create, changed or Delete new items of equipment in the system\n",
         "produces" : [ "application/json" ],
         "parameters" : [ {
           "in" : "body",
-          "name" : "equipmentItem",
+          "name" : "equipmentInfo",
           "required" : true,
           "schema" : {
-            "$ref" : "#/definitions/Equipment"
+            "type" : "object",
+            "required" : [ "created", "changed", "deleted" ],
+            "properties" : {
+              "created" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/definitions/Equipment"
+                }
+              },
+              "changed" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/definitions/Equipment"
+                }
+              },
+              "deleted" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "required" : [ "id", "effectiveFrom" ],
+                  "properties" : {
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "effectiveFrom" : {
+                      "type" : "string",
+                      "description" : "The timestamp that this state of the Material Lot is effective from.",
+                      "example" : "201808151000"
+                    }
+                  }
+                }
+              }
+            }
           }
         } ],
         "responses" : {
@@ -427,7 +459,7 @@
     },
     "EquipmentCapability" : {
       "type" : "object",
-      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes. **V0.1.0 Information**\n\nThe following fields are included in this version, which are not part of the standard specification:\n- id\n\nThe following properties are not supported in this version:\n- confidenceFactor\n\nThe following are changed in this version:\n- dates are explicit date-time types\n\nThe following are required in this version:\n- id",
+      "description" : "A representation of the capability of equipment or equipment classes that is committed, available, or unattainable for a specific time shall be used as an equipment capability. Equipment capability may contain references to either equipment or equipment classes. **V0.1.0 Information**\n\nThe following fields are included in this version, which are not part of the standard specification:\n- id\n- creationMode\n- equipmentRequirementId\n\nThe following properties are not supported in this version:\n- confidenceFactor\n\nThe following are changed in this version:\n- dates are explicit date-time types\n\nThe following are required in this version:\n- id",
       "required" : [ "id", "capabilityType", "quantity", "quantityUnitOfMeasure" ],
       "properties" : {
         "id" : {
@@ -444,6 +476,11 @@
           "type" : "string",
           "description" : "Identifies the associated equipment of the capability.",
           "example" : "EX7015"
+        },
+        "equipmentRequirementId" : {
+          "type" : "string",
+          "description" : "Identifies the associated equipment requirement of the capability.",
+          "example" : "644e1dd7-2a7f-18fb-b8ed-ed78c3f92c2b"
         },
         "description" : {
           "type" : "string",
@@ -502,8 +539,8 @@
     },
     "EquipmentCapabilityProperty" : {
       "type" : "object",
-      "description" : "Equipment capability properties may contain nested equipment capability properties.",
-      "required" : [ "id", "value", "quantity" ],
+      "description" : "Equipment capability properties may contain nested equipment capability properties.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- quantity\n- quantityUnitOfMeasure\n- nested properties\n\nThe following additional properties are included in this version:\n- context",
+      "required" : [ "id", "value" ],
       "properties" : {
         "id" : {
           "type" : "string",
@@ -525,21 +562,10 @@
           "description" : "The unit of measure of the associated property value, if applicable.",
           "example" : "{Metric,Imperial}"
         },
-        "quantity" : {
-          "type" : "number",
-          "description" : "Specifies the quantity of the equipment capability defined, if applicable.",
-          "example" : 1
-        },
-        "quantityUnitOfMeasure" : {
+        "context" : {
           "type" : "string",
-          "description" : "The unit of measure of the associated quantity.",
-          "example" : "Each"
-        },
-        "properties" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/EquipmentCapabilityProperty"
-          }
+          "description" : "The context associated with the property. This describes the kind of property",
+          "example" : "{Unstructured,Quality,Designation,NotApplicable}"
         }
       }
     },
