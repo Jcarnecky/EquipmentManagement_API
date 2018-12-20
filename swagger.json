@@ -299,7 +299,7 @@
     },
     "EquipmentProperty" : {
       "type" : "object",
-      "description" : "Properties of equipment shall be listed as equipment properties. An equipment shall have zero or more equipment properties. These specify the current property values of the equipment for the associated equipment class property. Equipment properties may include a unit of measure. An equipment property may be tested by the execution of an equipment capability test specification with results exchanged in an equipment capability test result. Equipment properties may contain nested equipment properties.\n\n**V0.1.0 Information**\nThe following fields are included in this version, which are not part of the standard specification:\n- context",
+      "description" : "Properties of equipment shall be listed as equipment properties. An equipment shall have zero or more equipment properties. These specify the current property values of the equipment for the associated equipment class property. Equipment properties may include a unit of measure. An equipment property may be tested by the execution of an equipment capability test specification with results exchanged in an equipment capability test result. Equipment properties may contain nested equipment properties.\n\n**V0.1.0 Information**\nThe following properties are not supported in this version:\n- nested properties\n\nThe following fields are included in this version, which are not part of the standard specification:\n- context",
       "required" : [ "id", "value", "valueUnitOfMeasure" ],
       "properties" : {
         "id" : {
