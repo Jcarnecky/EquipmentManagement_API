@@ -117,13 +117,117 @@
               "created" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/definitions/Equipment"
+                  "type" : "object",
+                  "required" : [ "id", "equipmentLevel", "effectiveFrom" ],
+                  "properties" : {
+                    "id" : {
+                      "type" : "string",
+                      "description" : "A unique identification of a specific piece of equipment, within the scope of the information exchanged (manufacturing operations definition, scheduling, capability and performance) The equipment ID shall be used in other parts of the model when the equipment needs to be identified, such as the production capability for a piece of equipment, or a production response identifying the equipment used.",
+                      "example" : "EX7015"
+                    },
+                    "equipmentLevel" : {
+                      "type" : "string",
+                      "description" : "An identification of the level in the role based equipment hierarchy.",
+                      "example" : "Work Unit"
+                    },
+                    "equipmentClassId" : {
+                      "type" : "string",
+                      "description" : "The type of this Equipment item",
+                      "example" : "ER-9400"
+                    },
+                    "description" : {
+                      "type" : "string",
+                      "description" : "Additional information about the equipment.",
+                      "example" : "Excavator EX7015"
+                    },
+                    "hierarchyScopeId" : {
+                      "type" : "string",
+                      "description" : "The part of the supply chain where the Equipment item exists.",
+                      "example" : "ER-IP"
+                    },
+                    "effectiveFrom" : {
+                      "type" : "string",
+                      "format" : "date-time",
+                      "description" : "The timestamp that this Equipment item version is applicable from.",
+                      "example" : "2016-04-16T16:06:05Z"
+                    },
+                    "reason" : {
+                      "type" : "string",
+                      "description" : "The reason for the creation of the equipment.",
+                      "example" : "Initialisation"
+                    },
+                    "spatialDefinition" : {
+                      "type" : "array",
+                      "description" : "The location or footprint of this Equipment item.",
+                      "items" : {
+                        "$ref" : "#/definitions/SpatialDefinition"
+                      }
+                    },
+                    "properties" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/definitions/EquipmentProperty"
+                      }
+                    }
+                  }
                 }
               },
               "changed" : {
                 "type" : "array",
                 "items" : {
-                  "$ref" : "#/definitions/Equipment"
+                  "type" : "object",
+                  "required" : [ "id", "equipmentLevel", "effectiveFrom" ],
+                  "properties" : {
+                    "id" : {
+                      "type" : "string",
+                      "description" : "A unique identification of a specific piece of equipment, within the scope of the information exchanged (manufacturing operations definition, scheduling, capability and performance) The equipment ID shall be used in other parts of the model when the equipment needs to be identified, such as the production capability for a piece of equipment, or a production response identifying the equipment used.",
+                      "example" : "EX7015"
+                    },
+                    "equipmentLevel" : {
+                      "type" : "string",
+                      "description" : "An identification of the level in the role based equipment hierarchy.",
+                      "example" : "Work Unit"
+                    },
+                    "equipmentClassId" : {
+                      "type" : "string",
+                      "description" : "The type of this Equipment item",
+                      "example" : "ER-9400"
+                    },
+                    "description" : {
+                      "type" : "string",
+                      "description" : "Additional information about the equipment.",
+                      "example" : "Excavator EX7015"
+                    },
+                    "hierarchyScopeId" : {
+                      "type" : "string",
+                      "description" : "The part of the supply chain where the Equipment item exists.",
+                      "example" : "ER-IP"
+                    },
+                    "effectiveFrom" : {
+                      "type" : "string",
+                      "format" : "date-time",
+                      "description" : "The timestamp that this Equipment item version is applicable from.",
+                      "example" : "2016-04-16T16:06:05Z"
+                    },
+                    "reason" : {
+                      "type" : "string",
+                      "description" : "The reason for the update of the equipment.",
+                      "example" : "Initialisation"
+                    },
+                    "spatialDefinition" : {
+                      "type" : "array",
+                      "description" : "The location or footprint of this Equipment item.",
+                      "items" : {
+                        "$ref" : "#/definitions/SpatialDefinition"
+                      }
+                    },
+                    "properties" : {
+                      "type" : "array",
+                      "items" : {
+                        "$ref" : "#/definitions/EquipmentProperty"
+                      }
+                    }
+                  }
                 }
               },
               "deleted" : {
